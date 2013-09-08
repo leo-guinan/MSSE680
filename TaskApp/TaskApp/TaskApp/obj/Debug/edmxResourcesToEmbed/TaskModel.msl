@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TaskAppDomainStoreContainer" CdmEntityContainer="tasksDBEntities">
+    <EntitySetMapping Name="Estimate1">
+      <EntityTypeMapping TypeName="TaskApp.Domain.Estimate1">
+        <MappingFragment StoreEntitySet="Estimate">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Task1">
+      <EntityTypeMapping TypeName="TaskApp.Domain.Task1">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="ESTIMATE_ID" ColumnName="ESTIMATE_ID" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User1">
+      <EntityTypeMapping TypeName="TaskApp.Domain.User1">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="username" ColumnName="username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
