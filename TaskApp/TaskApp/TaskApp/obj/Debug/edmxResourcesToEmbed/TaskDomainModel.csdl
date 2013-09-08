@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TaskApp.Domain" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="taskDomainDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Estimates" EntityType="TaskApp.Domain.Estimate" />
+    <EntitySet Name="Users" EntityType="TaskApp.Domain.User" />
+    <EntitySet Name="Tasks" EntityType="TaskApp.Domain.Task" />
+    <AssociationSet Name="estimate_fk" Association="TaskApp.Domain.estimate_fk">
+      <End Role="Estimate" EntitySet="Estimates" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Estimate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="time" Nullable="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Tasks" Relationship="TaskApp.Domain.estimate_fk" FromRole="Estimate" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Type="String" Name="username" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="notes" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="estimateId" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Estimate" Relationship="TaskApp.Domain.estimate_fk" FromRole="Task" ToRole="Estimate" />
+  </EntityType>
+  <Association Name="estimate_fk">
+    <End Type="TaskApp.Domain.Estimate" Role="Estimate" Multiplicity="1" />
+    <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estimate">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="estimateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
