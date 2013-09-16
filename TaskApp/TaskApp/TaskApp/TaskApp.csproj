@@ -146,7 +146,9 @@
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Service\ITaskService.cs" />
+    <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\TaskService.cs" />
+    <Compile Include="Service\UserService.cs" />
     <Compile Include="Task.cs">
       <DependentUpon>TaskDomainModel.tt</DependentUpon>
     </Compile>

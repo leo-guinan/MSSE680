@@ -17,36 +17,36 @@ namespace TaskApp.Service
         }
 
 
-        Boolean addUser(User user)
+        public Boolean addUser(User user)
         {
             return repository.addEntity(user);
         }
 
-        Boolean modifyUser(User user)
+        public Boolean modifyUser(User user)
         {
             return repository.updateEntity(user);
         }
 
-        User getUserById(int id)
+        public User getUserById(String id)
         {
             return repository.getEntity(id);
 
         }
 
-        IList<User> getAllUsers()
+        public IList<User> getAllUsers()
         {
             IList<User> allUsers = new List<User>();
 
-            foreach (IQueryable item in repository.getAllEntities())
+            foreach (User item in repository.getAllEntities())
             {
-                allUsers.Add((User)item);
+                allUsers.Add(item);
             }
 
             return allUsers;
 
         }
 
-        Boolean removeUser(User user)
+        public Boolean removeUser(User user)
         {
             return repository.delete(user);
         }

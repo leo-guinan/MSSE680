@@ -10,7 +10,7 @@ namespace TaskApp.Service
     {
         Boolean addUser(User user);
         Boolean modifyUser(User user);
-        User getUserById(int id);
+        User getUserById(String id);
         IList<User> getAllUsers();
         Boolean removeUser(User user);
     }

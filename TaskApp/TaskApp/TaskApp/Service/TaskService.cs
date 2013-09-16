@@ -17,9 +17,6 @@ namespace TaskApp.Service
             this.repository = repository;
         }
 
-       
-
-
         public Boolean addTask(Task task)
         {
             return repository.addEntity(task);
@@ -37,9 +34,9 @@ namespace TaskApp.Service
         {
             IList<Task> allTasks = new List<Task>();
 
-            foreach(IQueryable item in repository.getAllEntities()) 
+            foreach(Task item in repository.getAllEntities()) 
             {
-                allTasks.Add((Task)item);
+                allTasks.Add(item);
             }
 
             return allTasks;

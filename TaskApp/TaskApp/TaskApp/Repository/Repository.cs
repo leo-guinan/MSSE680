@@ -41,6 +41,7 @@ namespace TaskApp.Repository
         {
             if (entities.Remove(entity) != null) 
             {
+                this.context.SaveChanges();
                 return true;
             }
             return false;
