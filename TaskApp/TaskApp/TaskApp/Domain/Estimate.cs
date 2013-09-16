@@ -9,9 +9,7 @@ namespace TaskApp.Domain
     {
         public bool validateEstimate()
         {
-            return this.id != null
-                && this.time != null
-                && this.type != null;
+            return this.type != null;
         }
     }
 }
