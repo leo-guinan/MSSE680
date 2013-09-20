@@ -44,6 +44,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -106,8 +107,11 @@
     <Compile Include="Domain\TaskTest.cs" />
     <Compile Include="Domain\EstimateTest.cs" />
     <Compile Include="Domain\UserTest.cs" />
+    <Compile Include="Repository\EstimateRepositoryTest.cs" />
+    <Compile Include="Repository\TaskRepositoryTest.cs" />
+    <Compile Include="Repository\UserRepositoryTest.cs" />
     <Compile Include="Service\TaskServiceTest.cs" />
-    <Compile Include="Service\UserServiceTest.cs" />
+    <Compile Include="UserServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -121,9 +125,7 @@
       <Name>TaskApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

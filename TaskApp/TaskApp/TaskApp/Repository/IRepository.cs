@@ -14,6 +14,7 @@ namespace TaskApp.Repository
             T getEntity(object id);
             Boolean updateEntity(T entity);                
             IQueryable<T> getAllEntities();
+            List<T> getAllEntitiesAsList();
     }
     
 }

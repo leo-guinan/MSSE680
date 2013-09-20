@@ -25,8 +25,8 @@ namespace TaskApp.Domain
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Estimate> Estimates { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Estimate> Estimates { get; set; }
         public DbSet<Task> Tasks { get; set; }
     }
 }

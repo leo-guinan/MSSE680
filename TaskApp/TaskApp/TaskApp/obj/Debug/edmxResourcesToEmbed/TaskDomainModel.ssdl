@@ -4,27 +4,27 @@
     <EntitySet Name="Estimate" EntityType="TaskApp.Domain.Store.Estimate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Task" EntityType="TaskApp.Domain.Store.Task" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="TaskApp.Domain.Store.User" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="estimate_fk" Association="TaskApp.Domain.Store.estimate_fk">
-      <End Role="Estimate" EntitySet="Estimate" />
+    <AssociationSet Name="task_fk" Association="TaskApp.Domain.Store.task_fk">
       <End Role="Task" EntitySet="Task" />
+      <End Role="Estimate" EntitySet="Estimate" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Estimate">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="time" Type="int" Nullable="false" />
     <Property Name="type" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="taskId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Task">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="description" Type="varchar" MaxLength="255" />
     <Property Name="notes" Type="varchar" MaxLength="255" />
-    <Property Name="estimateId" Type="int" Nullable="false" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
   </EntityType>
   <EntityType Name="User">
@@ -34,15 +34,17 @@
     <Property Name="username" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="password" Type="varchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="estimate_fk">
-    <End Role="Estimate" Type="TaskApp.Domain.Store.Estimate" Multiplicity="1" />
-    <End Role="Task" Type="TaskApp.Domain.Store.Task" Multiplicity="*" />
+  <Association Name="task_fk">
+    <End Role="Task" Type="TaskApp.Domain.Store.Task" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Estimate" Type="TaskApp.Domain.Store.Estimate" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Estimate">
+      <Principal Role="Task">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Task">
-        <PropertyRef Name="estimateId" />
+      <Dependent Role="Estimate">
+        <PropertyRef Name="taskId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

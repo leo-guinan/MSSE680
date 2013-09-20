@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9479b5f486d148bc9cff246d6bd76ceb" Name="Diagram1" ZoomLevel="72">
-        <EntityTypeShape EntityType="TaskApp.Domain.Estimate" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="TaskApp.Domain.User" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="TaskApp.Domain.Task" Width="1.5" PointX="5.745788697966276" PointY="26.773502362320897" />
-        <AssociationConnector Association="TaskApp.Domain.estimate_fk" />
+        <EntityTypeShape EntityType="TaskApp.Domain.Estimate" Width="1.5" PointX="8.625" PointY="4.5" />
+        <EntityTypeShape EntityType="TaskApp.Domain.Task" Width="1.5" PointX="11.625" PointY="6" />
+        <AssociationConnector Association="TaskApp.Domain.task_fk" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
