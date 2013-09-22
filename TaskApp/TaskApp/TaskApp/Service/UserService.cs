@@ -50,5 +50,15 @@ namespace TaskApp.Service
         {
             return repository.delete(user);
         }
+
+        public Boolean authenticateUser(User user)
+        {
+            User targetUser = repository.getEntity(user.username);
+            if (targetUser != null)
+            {
+                return user.password == targetUser.password;
+            }
+            return false;
+        }
     }
 }

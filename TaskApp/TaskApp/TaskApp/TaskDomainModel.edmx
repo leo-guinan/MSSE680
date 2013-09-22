@@ -9,10 +9,6 @@
           <EntitySet Name="Estimate" EntityType="TaskApp.Domain.Store.Estimate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Task" EntityType="TaskApp.Domain.Store.Task" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="User" EntityType="TaskApp.Domain.Store.User" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="task_fk" Association="TaskApp.Domain.Store.task_fk">
-            <End Role="Task" EntitySet="Task" />
-            <End Role="Estimate" EntitySet="Estimate" />
-          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Estimate">
           <Key>
@@ -31,6 +27,9 @@
           <Property Name="description" Type="varchar" MaxLength="255" />
           <Property Name="notes" Type="varchar" MaxLength="255" />
           <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="priority" Type="int" Nullable="false" />
+          <Property Name="dateCreated" Type="date" Nullable="false" />
+          <Property Name="dueDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -39,20 +38,6 @@
           <Property Name="username" Type="varchar" Nullable="false" MaxLength="255" />
           <Property Name="password" Type="varchar(max)" Nullable="false" />
         </EntityType>
-        <Association Name="task_fk">
-          <End Role="Task" Type="TaskApp.Domain.Store.Task" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Estimate" Type="TaskApp.Domain.Store.Estimate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Task">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Estimate">
-              <PropertyRef Name="taskId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -92,6 +77,9 @@
           <Property Type="String" Name="notes" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Estimates" Relationship="TaskApp.Domain.task_fk" FromRole="Task" ToRole="Estimate" />
+          <Property Type="Int32" Name="priority" Nullable="false" />
+          <Property Type="DateTime" Name="dateCreated" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="dueDate" Nullable="false" Precision="0" />
         </EntityType>
         <Association Name="task_fk">
           <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="1">
@@ -134,6 +122,9 @@
           <EntitySetMapping Name="Tasks">
             <EntityTypeMapping TypeName="TaskApp.Domain.Task">
               <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="notes" ColumnName="notes" />
                 <ScalarProperty Name="description" ColumnName="description" />

@@ -4,10 +4,6 @@
     <EntitySet Name="Estimate" EntityType="TaskApp.Domain.Store.Estimate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Task" EntityType="TaskApp.Domain.Store.Task" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="User" EntityType="TaskApp.Domain.Store.User" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="task_fk" Association="TaskApp.Domain.Store.task_fk">
-      <End Role="Task" EntitySet="Task" />
-      <End Role="Estimate" EntitySet="Estimate" />
-    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Estimate">
     <Key>
@@ -26,6 +22,9 @@
     <Property Name="description" Type="varchar" MaxLength="255" />
     <Property Name="notes" Type="varchar" MaxLength="255" />
     <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="priority" Type="int" Nullable="false" />
+    <Property Name="dateCreated" Type="date" Nullable="false" />
+    <Property Name="dueDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -34,18 +33,4 @@
     <Property Name="username" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="password" Type="varchar(max)" Nullable="false" />
   </EntityType>
-  <Association Name="task_fk">
-    <End Role="Task" Type="TaskApp.Domain.Store.Task" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Estimate" Type="TaskApp.Domain.Store.Estimate" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Task">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Estimate">
-        <PropertyRef Name="taskId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

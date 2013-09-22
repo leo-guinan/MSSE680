@@ -31,3 +31,5 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Sy
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\NMock3.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\NMock3.xml

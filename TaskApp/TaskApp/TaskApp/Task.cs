@@ -23,6 +23,9 @@ namespace TaskApp.Domain
         public string description { get; set; }
         public string notes { get; set; }
         public string name { get; set; }
+        public int priority { get; set; }
+        public System.DateTime dateCreated { get; set; }
+        public System.DateTime dueDate { get; set; }
     
         public virtual ICollection<Estimate> Estimates { get; set; }
     }

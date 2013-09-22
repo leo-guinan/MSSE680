@@ -13,5 +13,6 @@ namespace TaskApp.Service
         User getUserById(String id);
         IList<User> getAllUsers();
         Boolean removeUser(User user);
+        Boolean authenticateUser(User user);
     }
 }

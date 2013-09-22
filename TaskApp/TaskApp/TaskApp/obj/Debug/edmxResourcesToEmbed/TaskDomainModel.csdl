@@ -35,6 +35,9 @@
     <Property Type="String" Name="notes" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Estimates" Relationship="TaskApp.Domain.task_fk" FromRole="Task" ToRole="Estimate" />
+    <Property Type="Int32" Name="priority" Nullable="false" />
+    <Property Type="DateTime" Name="dateCreated" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="dueDate" Nullable="false" Precision="0" />
   </EntityType>
   <Association Name="task_fk">
     <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="1">

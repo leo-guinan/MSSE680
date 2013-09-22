@@ -22,6 +22,9 @@
     <EntitySetMapping Name="Tasks">
       <EntityTypeMapping TypeName="TaskApp.Domain.Task">
         <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="notes" ColumnName="notes" />
           <ScalarProperty Name="description" ColumnName="description" />
