@@ -39,11 +39,15 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="NMock3">
+      <HintPath>..\..\..\..\..\..\..\..\NMOck\NMock3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
@@ -101,11 +105,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparer\PriorityTaskComparerTest.cs" />
+    <Compile Include="Comparer\DateCreatedTaskComparerTest.cs" />
+    <Compile Include="Comparer\DueDateTaskComparerTest.cs" />
     <Compile Include="Integration\Integration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\TaskTest.cs" />
     <Compile Include="Domain\EstimateTest.cs" />
     <Compile Include="Domain\UserTest.cs" />
+    <Compile Include="Repository\EstimateRepositoryTest.cs" />
+    <Compile Include="Repository\TaskRepositoryTest.cs" />
+    <Compile Include="Repository\UserRepositoryTest.cs" />
     <Compile Include="Service\TaskServiceTest.cs" />
     <Compile Include="Service\UserServiceTest.cs" />
   </ItemGroup>
@@ -121,9 +131,7 @@
       <Name>TaskApp</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

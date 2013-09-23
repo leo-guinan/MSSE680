@@ -14,12 +14,19 @@ namespace TaskApp.Domain
     
     public partial class Task
     {
+        public Task()
+        {
+            this.Estimates = new HashSet<Estimate>();
+        }
+    
         public int id { get; set; }
         public string description { get; set; }
         public string notes { get; set; }
-        public int estimateId { get; set; }
         public string name { get; set; }
+        public int priority { get; set; }
+        public System.DateTime dateCreated { get; set; }
+        public System.DateTime dueDate { get; set; }
     
-        public virtual Estimate Estimate { get; set; }
+        public virtual ICollection<Estimate> Estimates { get; set; }
     }
 }

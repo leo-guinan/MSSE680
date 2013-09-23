@@ -132,6 +132,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Comparer\DateCreatedTaskComparer.cs" />
+    <Compile Include="Comparer\DueDateTaskComparer.cs" />
+    <Compile Include="Comparer\PriorityTaskComparer.cs" />
     <Compile Include="Domain\User.cs" />
     <Compile Include="Domain\Estimate.cs" />
     <Compile Include="Estimate.cs">
@@ -145,6 +148,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Service\IService.cs" />
     <Compile Include="Service\ITaskService.cs" />
     <Compile Include="Service\IUserService.cs" />
     <Compile Include="Service\TaskService.cs" />

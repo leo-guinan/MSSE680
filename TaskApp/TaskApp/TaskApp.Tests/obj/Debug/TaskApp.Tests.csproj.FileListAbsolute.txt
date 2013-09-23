@@ -1,7 +1,7 @@
-C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\TaskApp.Tests.dll.config
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\TaskApp.Tests.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\TaskApp.Tests.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\EntityFramework.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Newtonsoft.Json.dll
@@ -15,9 +15,9 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Sy
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.WebPages.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\TaskApp.dll
-C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\EntityFramework.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.Optimization.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\TaskApp.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.Helpers.xml
@@ -28,6 +28,8 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\Sy
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.WebPages.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\EntityFramework.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\obj\Debug\TaskApp.Tests.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\NMock3.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Tests\bin\Debug\NMock3.xml

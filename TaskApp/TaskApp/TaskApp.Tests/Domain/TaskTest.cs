@@ -14,7 +14,6 @@ namespace TaskApp.Tests
         {
             task.name = "taskName";
                 
-            task.estimateId = 1;
             task.id = 1;
             Assert.IsTrue(task.validateTask());
         }
@@ -24,7 +23,6 @@ namespace TaskApp.Tests
         {
             task.name = null;
 
-            task.estimateId = 1;
             task.id = 1;
             Assert.IsFalse(task.validateTask());
         }
