@@ -1,14 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TaskApp.Domain" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="taskDomainDBEntities" p1:LazyLoadingEnabled="true">
-    <EntitySet Name="Estimates" EntityType="TaskApp.Domain.Estimate" />
     <EntitySet Name="Users" EntityType="TaskApp.Domain.User" />
+    <EntitySet Name="Estimates" EntityType="TaskApp.Domain.Estimate" />
     <EntitySet Name="Tasks" EntityType="TaskApp.Domain.Task" />
-    <AssociationSet Name="estimate_fk" Association="TaskApp.Domain.estimate_fk">
-      <End Role="Estimate" EntitySet="Estimates" />
+    <AssociationSet Name="task_fk" Association="TaskApp.Domain.task_fk">
       <End Role="Task" EntitySet="Tasks" />
+      <End Role="Estimate" EntitySet="Estimates" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="username" />
+    </Key>
+    <Property Type="String" Name="username" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="Estimate">
     <Key>
       <PropertyRef Name="id" />
@@ -16,14 +23,8 @@
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="Int32" Name="time" Nullable="false" />
     <Property Type="String" Name="type" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Tasks" Relationship="TaskApp.Domain.estimate_fk" FromRole="Estimate" ToRole="Task" />
-  </EntityType>
-  <EntityType Name="User">
-    <Key>
-      <PropertyRef Name="username" />
-    </Key>
-    <Property Type="String" Name="username" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="taskId" Nullable="false" />
+    <NavigationProperty Name="Task" Relationship="TaskApp.Domain.task_fk" FromRole="Estimate" ToRole="Task" />
   </EntityType>
   <EntityType Name="Task">
     <Key>
@@ -32,19 +33,23 @@
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
     <Property Type="String" Name="notes" MaxLength="255" FixedLength="false" Unicode="false" />
-    <Property Type="Int32" Name="estimateId" Nullable="false" />
     <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Estimate" Relationship="TaskApp.Domain.estimate_fk" FromRole="Task" ToRole="Estimate" />
+    <NavigationProperty Name="Estimates" Relationship="TaskApp.Domain.task_fk" FromRole="Task" ToRole="Estimate" />
+    <Property Type="Int32" Name="priority" Nullable="false" />
+    <Property Type="DateTime" Name="dateCreated" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="dueDate" Nullable="false" Precision="0" />
   </EntityType>
-  <Association Name="estimate_fk">
-    <End Type="TaskApp.Domain.Estimate" Role="Estimate" Multiplicity="1" />
-    <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="*" />
+  <Association Name="task_fk">
+    <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="TaskApp.Domain.Estimate" Role="Estimate" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Estimate">
+      <Principal Role="Task">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Task">
-        <PropertyRef Name="estimateId" />
+      <Dependent Role="Estimate">
+        <PropertyRef Name="taskId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

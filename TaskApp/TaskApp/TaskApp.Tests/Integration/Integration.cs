@@ -22,27 +22,21 @@ namespace TaskApp.Tests.Integration
             task.description = "description";
             task.name = "testTask";
             task.notes = "taskNotes";
-            task.id = 999;
-            task.estimateId = 999;
             Estimate estimate = new Estimate();
-            estimate.id = 999;
             estimate.time = 5;
             estimate.type = "hours";
-            task.Estimate = estimate;
+            estimate.Task = task;
             Assert.IsTrue(taskService.addTask(task));
             Assert.AreEqual(taskService.getTaskById(task.id).name, "testTask");
             task.name = "newTaskName";
             Assert.IsTrue(taskService.modifyTask(task));
             Assert.AreEqual(taskService.getTaskById(task.id).name, "newTaskName");
-            Assert.AreEqual(taskService.getTaskById(999), task);
+            Assert.AreEqual(taskService.getTaskById(task.id), task);
             Assert.IsTrue(taskService.getAllTasks().Count > 0);
             Assert.IsTrue(taskService.removeTask(task));
             Assert.IsNull(taskService.getTaskById(999));
 
-            //This should not be needed. Problem with relationship. Will be remedied during next release cycle.
-            IRepository<Estimate> estimateRepository = new Repository<Estimate>(new taskDomainDBEntities());
-            estimate = estimateRepository.getEntity(999);
-            estimateRepository.delete(estimate);
+            
 
         }
 

@@ -65,6 +65,12 @@ namespace TaskApp.Repository
         public IQueryable<T> getAllEntities()
         {
             return entities.AsQueryable();
+            
+        }
+
+        public List<T> getAllEntitiesAsList()
+        {
+            return entities.ToList();
         }
 
         public void Dispose()

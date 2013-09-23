@@ -11,8 +11,11 @@ namespace TaskApp.Service
         Boolean addTask(Task task);
         Boolean modifyTask(Task task);
         Task getTaskById(int id);
-        IList<Task> getAllTasks();
+        List<Task> getAllTasks();
         Boolean removeTask(Task task);
+        List<Task> getAllTasksByPriority();
+        List<Task> getAllTasksByDateCreated();
+        List<Task> getAllTasksByDueDate();
 
     }
 }
