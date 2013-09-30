@@ -1,9 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp", "TaskApp\TaskApp.csproj", "{4629D003-10F8-4686-8524-6F9DFA0159A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Domain", "TaskApp\TaskApp.Domain.csproj", "{4629D003-10F8-4686-8524-6F9DFA0159A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Tests", "TaskApp.Tests\TaskApp.Tests.csproj", "{E8FF5959-9208-464A-8384-293F3E27DF21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Domain.Tests", "TaskApp.Tests\TaskApp.Domain.Tests.csproj", "{E8FF5959-9208-464A-8384-293F3E27DF21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Repository", "TaskAppRepository\TaskApp.Repository.csproj", "{66518A16-9D22-4852-8D9B-C8DA3045D280}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Repository.Tests", "TaskAppRepository.Tests\TaskApp.Repository.Tests.csproj", "{FF141CE3-E334-445F-A481-66F0C482A4E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Service", "TaskAppService\TaskApp.Service.csproj", "{25F335DE-0816-4EEC-8264-7E3E792C9E38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Service.Tests", "TaskAppService.Tests\TaskApp.Service.Tests.csproj", "{E8A334B2-7ECD-4B17-8254-B55AD2A51920}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Business", "TaskApp.Business\TaskApp.Business.csproj", "{B1AF2987-196C-43A2-BB05-577A3E62F9E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskApp.Business.Tests", "TaskApp.Business.Tests\TaskApp.Business.Tests.csproj", "{EAA44CE1-D124-457E-9313-DCEDACB2AFF6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +31,30 @@ Global
 		{E8FF5959-9208-464A-8384-293F3E27DF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8FF5959-9208-464A-8384-293F3E27DF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8FF5959-9208-464A-8384-293F3E27DF21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66518A16-9D22-4852-8D9B-C8DA3045D280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66518A16-9D22-4852-8D9B-C8DA3045D280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66518A16-9D22-4852-8D9B-C8DA3045D280}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66518A16-9D22-4852-8D9B-C8DA3045D280}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF141CE3-E334-445F-A481-66F0C482A4E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF141CE3-E334-445F-A481-66F0C482A4E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF141CE3-E334-445F-A481-66F0C482A4E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF141CE3-E334-445F-A481-66F0C482A4E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25F335DE-0816-4EEC-8264-7E3E792C9E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25F335DE-0816-4EEC-8264-7E3E792C9E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25F335DE-0816-4EEC-8264-7E3E792C9E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25F335DE-0816-4EEC-8264-7E3E792C9E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A334B2-7ECD-4B17-8254-B55AD2A51920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A334B2-7ECD-4B17-8254-B55AD2A51920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A334B2-7ECD-4B17-8254-B55AD2A51920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A334B2-7ECD-4B17-8254-B55AD2A51920}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1AF2987-196C-43A2-BB05-577A3E62F9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AF2987-196C-43A2-BB05-577A3E62F9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AF2987-196C-43A2-BB05-577A3E62F9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AF2987-196C-43A2-BB05-577A3E62F9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAA44CE1-D124-457E-9313-DCEDACB2AFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAA44CE1-D124-457E-9313-DCEDACB2AFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAA44CE1-D124-457E-9313-DCEDACB2AFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAA44CE1-D124-457E-9313-DCEDACB2AFF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
