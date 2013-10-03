@@ -26,11 +26,11 @@ namespace TaskApp.Tests.Business
 
 
         MockFactory mockFactory;
-        public Mock<IServiceFactory> serviceFactoryMock;
+        Mock<IServiceFactory> serviceFactoryMock;
         Mock<IUserService> userServiceMock;
         Mock<ITaskService> taskServiceMock;
         
-        TaskManager taskManager;
+        ITaskManager taskManager;
         Task task;
         User user;
         [TestInitialize]
@@ -52,12 +52,13 @@ namespace TaskApp.Tests.Business
             estimate.time = estimateTime;
             task.Estimates.Add(estimate);
             mockFactory = new MockFactory();
-            serviceFactoryMock = mockFactory.CreateMock<ServiceFactory>();
+            serviceFactoryMock = mockFactory.CreateMock<IServiceFactory>();
             userServiceMock = mockFactory.CreateMock<IUserService>();
             taskServiceMock = mockFactory.CreateMock<ITaskService>();
+            serviceFactoryMock.Expects.One.MethodWith(f => f.getService("userService")).WillReturn((IService)userServiceMock.MockObject);
+            serviceFactoryMock.Expects.One.MethodWith(f => f.getService("taskService")).WillReturn((IService)taskServiceMock.MockObject);
             taskManager = new TaskManager(serviceFactoryMock.MockObject);
-            serviceFactoryMock.Expects.One.MethodWith(f => f.getService("userService")).WillReturn((IService) userServiceMock.MockObject);
-            serviceFactoryMock.Expects.One.MethodWith(f => f.getService("taskService") ).WillReturn((IService) taskServiceMock.MockObject);
+
 
             
         }
@@ -70,14 +71,17 @@ namespace TaskApp.Tests.Business
         [TestMethod]
         public void TestAddTask()
         {
-            taskServiceMock.Expects.One.MethodWith(s => s.addTask(task)).WillReturn(true);
-          Assert.IsTrue(taskManager.addTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType));   
+            taskServiceMock.Expects.One.Method(s => s.addTask(task)).WithAnyArguments().WillReturn(true);
+            Assert.IsTrue(taskManager.addTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType));   
         }
 
         [TestMethod]
         public void TestModifyTask()
         {
-            taskServiceMock.Expects.One.MethodWith(s => s.modifyTask(task)).WillReturn(true);
+            int id = 1;
+            taskServiceMock.Expects.One.Method(s => s.modifyTask(task)).WithAnyArguments().WillReturn(true);
+            taskServiceMock.Expects.One.Method(s => s.getTaskById(id)).WithAnyArguments().WillReturn(task);
+
             Assert.IsTrue(taskManager.modifyTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType, 1));  
 
         }
@@ -85,7 +89,7 @@ namespace TaskApp.Tests.Business
         [TestMethod]
         public void TestLogin()
         {
-            userServiceMock.Expects.One.MethodWith(s => s.authenticateUser(user)).WillReturn(true);
+            userServiceMock.Expects.One.Method(s => s.authenticateUser(user)).WithAnyArguments().WillReturn(true);
             Assert.IsTrue(taskManager.login(username, password));
         }
     }

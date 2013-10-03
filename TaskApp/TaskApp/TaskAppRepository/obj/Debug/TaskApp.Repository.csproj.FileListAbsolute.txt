@@ -26,5 +26,6 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\bin\Syst
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\bin\System.Web.WebPages.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\bin\System.Web.WebPages.Razor.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\obj\Debug\TaskApp.Repository.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\obj\Debug\TaskAppRepository.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskAppRepository\obj\Debug\TaskAppRepository.pdb

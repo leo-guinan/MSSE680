@@ -7,8 +7,8 @@ using TaskApp.Service;
 
 namespace TaskApp.Factory.Service
 {
-    interface IServiceFactory
+    public interface IServiceFactory
     {
-        public IService getService(String serviceName);
+        IService getService(String serviceName);
     }
 }

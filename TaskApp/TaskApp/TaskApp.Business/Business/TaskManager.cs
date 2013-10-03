@@ -8,14 +8,14 @@ using TaskApp.Service;
 
 namespace TaskApp.Business
 {
-    public class TaskManager
+    public class TaskManager : ITaskManager
     {
         private IUserService userService;
         private ITaskService taskService;
 
-        private ServiceFactory serviceFactory;
+        private IServiceFactory serviceFactory;
 
-        public TaskManager(ServiceFactory serviceFactory)
+        public TaskManager(IServiceFactory serviceFactory)
         {
             this.serviceFactory = serviceFactory;
             userService = (IUserService) serviceFactory.getService("userService");
