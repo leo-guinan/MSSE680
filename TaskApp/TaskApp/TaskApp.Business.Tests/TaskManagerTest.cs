@@ -11,7 +11,6 @@ namespace TaskApp.Tests.Business
     [TestClass]
     public class TaskManagerTest
     {
-
         private static readonly String name = "name";
         private static readonly String notes = "notes";
         private static readonly String description = "description";
@@ -20,26 +19,17 @@ namespace TaskApp.Tests.Business
         private static readonly DateTime dueDate = new DateTime(2014, 1, 1);
         private static readonly int estimateTime = 2;
         private static readonly String estimateType = "hours";
-
-        private static readonly String username = "username";
-        private static readonly String password = "password";
-
-
         MockFactory mockFactory;
         Mock<IServiceFactory> serviceFactoryMock;
         Mock<IUserService> userServiceMock;
-        Mock<ITaskService> taskServiceMock;
-        
+        Mock<ITaskService> taskServiceMock;        
         ITaskManager taskManager;
         Task task;
         User user;
         [TestInitialize]
         public void setup()
         {
-            user = new User();
-            user.username = username;
-            user.password = password;
-
+ 
             task = new Task();
             task.name = name;
             task.description = description;
@@ -55,18 +45,9 @@ namespace TaskApp.Tests.Business
             serviceFactoryMock = mockFactory.CreateMock<IServiceFactory>();
             userServiceMock = mockFactory.CreateMock<IUserService>();
             taskServiceMock = mockFactory.CreateMock<ITaskService>();
-            serviceFactoryMock.Expects.One.MethodWith(f => f.getService("userService")).WillReturn((IService)userServiceMock.MockObject);
             serviceFactoryMock.Expects.One.MethodWith(f => f.getService("taskService")).WillReturn((IService)taskServiceMock.MockObject);
-            taskManager = new TaskManager(serviceFactoryMock.MockObject);
-
-
-            
+            taskManager = new TaskManager(serviceFactoryMock.MockObject);   
         }
-
-
-
-
-
 
         [TestMethod]
         public void TestAddTask()
@@ -81,16 +62,10 @@ namespace TaskApp.Tests.Business
             int id = 1;
             taskServiceMock.Expects.One.Method(s => s.modifyTask(task)).WithAnyArguments().WillReturn(true);
             taskServiceMock.Expects.One.Method(s => s.getTaskById(id)).WithAnyArguments().WillReturn(task);
-
             Assert.IsTrue(taskManager.modifyTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType, 1));  
 
         }
 
-        [TestMethod]
-        public void TestLogin()
-        {
-            userServiceMock.Expects.One.Method(s => s.authenticateUser(user)).WithAnyArguments().WillReturn(true);
-            Assert.IsTrue(taskManager.login(username, password));
-        }
+  
     }
 }

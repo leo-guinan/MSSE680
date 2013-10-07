@@ -12,22 +12,26 @@ namespace TaskApp.Service
     {
 
         private IRepository<Task> repository;
+        private IRepository<Estimate> estimateRepository;
 
-        public TaskService(IRepository<Task> repository)
+
+        public TaskService(IRepository<Task> repository, IRepository<Estimate> estimateRepository)
         {
             this.repository = repository;
+            this.estimateRepository = estimateRepository;
         }
 
         public Boolean addTask(Task task)
         {
             Task added = repository.addEntity(task);
-            return added != null;
+            Estimate estimate = estimateRepository.addEntity(task.Estimates.ElementAt(0)); 
+            return added != null && estimate != null;
         }
 
         
         public Boolean modifyTask(Task task)
         {
-            return null != repository.updateEntity(task);
+            return null != repository.updateEntity(task) && null != estimateRepository.updateEntity(task.Estimates.ElementAt(0));
         }
 
         public Task getTaskById(int id)

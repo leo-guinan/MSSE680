@@ -29,10 +29,12 @@ namespace TaskApp.Factory.Service
 
         private static DbContext context = new taskDomainDBEntities();
         private static IRepository<Task> taskRepository = new Repository<Task>(context);
+        private static IRepository<Estimate> estimateRepository = new Repository<Estimate>(context);
+
         private static IRepository<User> userRepository = new Repository<User>(context);
         private ITaskService getTaskService()
         {
-            return new TaskService(taskRepository);
+            return new TaskService(taskRepository, estimateRepository);
         }
         private IUserService getUserService()
         {

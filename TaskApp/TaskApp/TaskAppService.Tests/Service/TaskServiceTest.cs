@@ -13,6 +13,8 @@ namespace TaskApp.Tests.Service
     public class TaskServiceTest
     {
         private Mock<IRepository<Task>> mockRepository;
+        private Mock<IRepository<Estimate>> mockEstimateRepository;
+
         private MockFactory mockFactory;
 
         private ITaskService taskService;
@@ -20,39 +22,44 @@ namespace TaskApp.Tests.Service
         private Task task1;
         private Task task2;
         private Task task3;
-
+        private Estimate estimate;
+        private List<Task> taskList;
         [TestInitialize]
         public void setup()
         {
-            List<Task> tasks = new List<Task>();
-            
+            taskList = new List<Task>();
+            estimate = new Estimate();
+
             task1 = new Task();
             task1.name = "task1";
             task1.priority = 1;
             task1.dateCreated = new DateTime(2013, 1, 1);
             task1.dueDate = new DateTime(2014, 1, 1);
-            
+            task1.Estimates.Add(estimate);
+
             task2 = new Task();
             task2.name = "task2";
             task2.priority = 2;
             task2.dateCreated = new DateTime(2012, 1, 1);
-            task2.dueDate = new DateTime(2013, 1, 1); 
-            
+            task2.dueDate = new DateTime(2013, 1, 1);
+            task2.Estimates.Add(estimate);
+
             task3 = new Task();
             task3.name = "task1";
             task3.priority = 3;
             task3.dateCreated = new DateTime(2011, 1, 1);
             task3.dueDate = new DateTime(2012, 1, 1);
-            
-            tasks.Add(task1);
-            tasks.Add(task2);
-            tasks.Add(task3);
+            task3.Estimates.Add(estimate);
+
+            taskList.Add(task1);
+            taskList.Add(task2);
+            taskList.Add(task3);
 
             
             mockFactory = new MockFactory();
             mockRepository = mockFactory.CreateMock<IRepository<Task>>();
-            mockRepository.Expects.One.MethodWith(r => r.getAllEntities()).WillReturn(tasks.AsQueryable());
-            taskService = new TaskService(mockRepository.MockObject);
+            mockEstimateRepository = mockFactory.CreateMock<IRepository<Estimate>>();
+            taskService = new TaskService(mockRepository.MockObject, mockEstimateRepository.MockObject);
 
         }
 
@@ -60,6 +67,8 @@ namespace TaskApp.Tests.Service
         public void testAddTask()
         {
             mockRepository.Expects.One.MethodWith(r => r.addEntity(task1)).WillReturn(task1);
+            mockEstimateRepository.Expects.AtLeastOne.MethodWith(r => r.addEntity(estimate)).WillReturn(estimate);
+
             mockRepository.Expects.One.MethodWith(r => r.addEntity(task2)).WillReturn(null);
 
             Assert.IsTrue(taskService.addTask(task1));
@@ -69,6 +78,7 @@ namespace TaskApp.Tests.Service
         [TestMethod]
         public void testModifyTask()
         {
+            mockEstimateRepository.Expects.AtLeastOne.MethodWith(r => r.updateEntity(estimate)).WillReturn(estimate);
             mockRepository.Expects.One.MethodWith(r => r.updateEntity(task1)).WillReturn(task1);
             mockRepository.Expects.One.MethodWith(r => r.updateEntity(task2)).WillReturn(null);
 
@@ -89,6 +99,7 @@ namespace TaskApp.Tests.Service
         [TestMethod]
         public void testGetAllTasks()
         {
+            mockRepository.Expects.One.MethodWith(r => r.getAllEntities()).WillReturn(taskList.AsQueryable());
             List<Task> tasks = taskService.getAllTasks();
             Assert.AreEqual(3, tasks.Count);
         }
@@ -98,14 +109,14 @@ namespace TaskApp.Tests.Service
         {
             mockRepository.Expects.One.MethodWith(r => r.delete(task1)).WillReturn(true);
             mockRepository.Expects.One.MethodWith(r => r.delete(task2)).WillReturn(false);
-
             Assert.IsTrue(taskService.removeTask(task1));
             Assert.IsFalse(taskService.removeTask(task2));
         }
 
         [TestMethod]
         public void testSortByPriority()
-        {   
+        {
+            mockRepository.Expects.One.MethodWith(r => r.getAllEntities()).WillReturn(taskList.AsQueryable());
             List<Task> tasks = taskService.getAllTasksByPriority();
             Assert.IsTrue(tasks[0].priority < tasks[1].priority);
             Assert.IsTrue(tasks[1].priority < tasks[2].priority);
@@ -114,6 +125,7 @@ namespace TaskApp.Tests.Service
         [TestMethod]
         public void testSortByDateCreated()
         {
+            mockRepository.Expects.One.MethodWith(r => r.getAllEntities()).WillReturn(taskList.AsQueryable());
             List<Task> tasks = taskService.getAllTasksByDateCreated();
             Assert.IsTrue(tasks[0].dateCreated < tasks[1].dateCreated);
             Assert.IsTrue(tasks[1].dateCreated < tasks[2].dateCreated);
@@ -122,6 +134,7 @@ namespace TaskApp.Tests.Service
         [TestMethod]
         public void testSortByDueDate()
         {
+            mockRepository.Expects.One.MethodWith(r => r.getAllEntities()).WillReturn(taskList.AsQueryable());
             List<Task> tasks = taskService.getAllTasksByDueDate();
             Assert.IsTrue(tasks[0].dueDate < tasks[1].dueDate);
             Assert.IsTrue(tasks[1].dueDate < tasks[2].dueDate);

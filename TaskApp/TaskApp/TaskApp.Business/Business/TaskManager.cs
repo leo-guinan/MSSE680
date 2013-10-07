@@ -18,16 +18,12 @@ namespace TaskApp.Business
         public TaskManager(IServiceFactory serviceFactory)
         {
             this.serviceFactory = serviceFactory;
-            userService = (IUserService) serviceFactory.getService("userService");
             taskService = (ITaskService) serviceFactory.getService("taskService");
         }
 
-        public Boolean login(String username, String password)
+        public IList<Task> getAllTasks()
         {
-            User user = new User();
-            user.username = username;
-            user.password = password;
-            return userService.authenticateUser(user);
+            return taskService.getAllTasks();
         }
 
         public Boolean addTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType)

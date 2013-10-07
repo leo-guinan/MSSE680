@@ -19,6 +19,7 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskApp.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskAppService.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\System.Web.Optimization.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\Ninject.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\EntityFramework.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskAppRepository.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskApp.Business.pdb
@@ -35,6 +36,8 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\System.Web.WebPages.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\Ninject.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\Ninject.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskAppRepository.pdb
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\obj\Debug\TaskApp.Business.Tests.dll

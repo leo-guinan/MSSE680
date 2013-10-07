@@ -15,9 +15,12 @@ namespace TaskApp.Tests.Integration
         private ITaskService taskService = (ITaskService) factory.getService("taskService");
         private IUserService userService = (IUserService) factory.getService("userService");
 
+        private Estimate estimate;
+
         [TestMethod]
         public void testFlowFromServiceFactoryToGetDomainObjectsTask()
         {
+
             Task task = new Task();
             task.description = "description";
             task.name = "testTask";
@@ -25,7 +28,7 @@ namespace TaskApp.Tests.Integration
             Estimate estimate = new Estimate();
             estimate.time = 5;
             estimate.type = "hours";
-            estimate.Task = task;
+            task.Estimates.Add(estimate);
             Assert.IsTrue(taskService.addTask(task));
             Assert.AreEqual(taskService.getTaskById(task.id).name, "testTask");
             task.name = "newTaskName";

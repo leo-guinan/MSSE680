@@ -5,6 +5,7 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Entit
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Newtonsoft.Json.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Ninject.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\System.Net.Http.Formatting.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\System.Web.Http.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\System.Web.Http.WebHost.dll
@@ -21,6 +22,8 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\WebGr
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\TaskAppRepository.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\TaskAppService.pdb
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\TaskApp.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Ninject.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Ninject.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\EntityFramework.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\Newtonsoft.Json.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business\bin\System.Net.Http.Formatting.xml
