@@ -22,22 +22,40 @@ namespace TaskApp.View.Controllers
         public ActionResult Index()
         {
             return View();
-        
-        
+
+
         }
 
-        public ActionResult Add(TaskModel taskModel)
+        [HttpGet]
+        public ActionResult Add()
         {
 
             return View();
         }
 
-        public ActionResult ListAll()
+        [HttpPost]
+        public ActionResult Add(TaskModel taskModel)
         {
-            IList<Task> tasks = taskManager.getAllTasks();
+            taskModel.dateCreated = DateTime.Now;
+            if (taskManager.addTask(taskModel.name, taskModel.notes, taskModel.description, taskModel.dateCreated, taskModel.dueDate, taskModel.priority, taskModel.time, taskModel.type))
+            {
+                return View("AddSuccess");
+            }
+            else
+            {
+                return View("AddFailure");
+            }
+        }
+
+        public ActionResult ListAll(String sortBy)
+        {
+            IList<Task> tasks;
+            tasks = taskManager.getAllTasks(sortBy);
+            
             IList<TaskModel> models = new List<TaskModel>();
-            foreach(Task task in tasks) {
-                models.Add(convertTaskToTaskModel(task));    
+            foreach (Task task in tasks)
+            {
+                models.Add(convertTaskToTaskModel(task));
             }
             return View(models);
         }
@@ -60,6 +78,23 @@ namespace TaskApp.View.Controllers
             }
             return model;
         }
+
+        private Task convertTaskModelToTask(TaskModel taskModel)
+        {
+            Task task = new Task();
+            task.name = taskModel.name;
+            task.notes = taskModel.notes;
+            task.description = taskModel.description;
+            task.dueDate = taskModel.dueDate;
+            task.priority = taskModel.priority;
+            task.dateCreated = taskModel.dateCreated;
+            Estimate estimate = new Estimate();
+            estimate.time = taskModel.time;
+            estimate.type = taskModel.type;
+            task.Estimates.Add(estimate);
+            return task;
+        }
+
 
         #endregion
 

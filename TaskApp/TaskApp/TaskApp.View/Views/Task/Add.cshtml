@@ -1,17 +1,50 @@
-﻿@{
-    Layout = null;
+﻿@model TaskApp.View.Models.TaskModel
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            @using (Html.BeginForm())
+            {
+                @Html.LabelFor(m => m.name)
+                @Html.TextBoxFor(m => m.name)
+
+                @Html.LabelFor(m => m.notes)
+                @Html.TextBoxFor(m => m.notes)
+
+
+                @Html.LabelFor(m => m.description)
+                @Html.TextBoxFor(m => m.description)
+
+
+                @Html.LabelFor(m => m.priority)
+                @Html.TextBoxFor(m => m.priority)
+
+                @Html.LabelFor(m => m.dueDate)
+                @Html.EditorFor(m => m.dueDate, new { id = "dueDate" })
+
+                @Html.LabelFor(m => m.time)
+                @Html.TextBoxFor(m => m.time)
+
+
+                @Html.LabelFor(m => m.type)
+                @Html.TextBoxFor(m => m.type)
+                <input type="submit" value="Add Task" />
+            }
+
+
+        </div>
+    </section>
+
+
 }
 
-<!DOCTYPE html>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#dueDate").datepicker({ dateFormat: 'mm/dd/yy' });
+        });
+    </script>
+}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+

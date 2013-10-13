@@ -323,6 +323,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Task\Add.cshtml" />
     <Content Include="Views\Task\ListAll.cshtml" />
+    <Content Include="Views\Task\AddSuccess.cshtml" />
+    <Content Include="Views\Task\AddFailure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

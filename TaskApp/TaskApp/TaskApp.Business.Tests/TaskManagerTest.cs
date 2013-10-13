@@ -5,6 +5,7 @@ using TaskApp.Business;
 using TaskApp.Domain;
 using TaskApp.Factory.Service;
 using TaskApp.Service;
+using System.Collections.Generic;
 
 namespace TaskApp.Tests.Business
 {
@@ -22,14 +23,15 @@ namespace TaskApp.Tests.Business
         MockFactory mockFactory;
         Mock<IServiceFactory> serviceFactoryMock;
         Mock<IUserService> userServiceMock;
-        Mock<ITaskService> taskServiceMock;        
+        Mock<ITaskService> taskServiceMock;
         ITaskManager taskManager;
         Task task;
-        User user;
+
+
         [TestInitialize]
         public void setup()
         {
- 
+
             task = new Task();
             task.name = name;
             task.description = description;
@@ -46,14 +48,14 @@ namespace TaskApp.Tests.Business
             userServiceMock = mockFactory.CreateMock<IUserService>();
             taskServiceMock = mockFactory.CreateMock<ITaskService>();
             serviceFactoryMock.Expects.One.MethodWith(f => f.getService("taskService")).WillReturn((IService)taskServiceMock.MockObject);
-            taskManager = new TaskManager(serviceFactoryMock.MockObject);   
+            taskManager = new TaskManager(serviceFactoryMock.MockObject);
         }
 
         [TestMethod]
         public void TestAddTask()
         {
             taskServiceMock.Expects.One.Method(s => s.addTask(task)).WithAnyArguments().WillReturn(true);
-            Assert.IsTrue(taskManager.addTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType));   
+            Assert.IsTrue(taskManager.addTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType));
         }
 
         [TestMethod]
@@ -62,10 +64,28 @@ namespace TaskApp.Tests.Business
             int id = 1;
             taskServiceMock.Expects.One.Method(s => s.modifyTask(task)).WithAnyArguments().WillReturn(true);
             taskServiceMock.Expects.One.Method(s => s.getTaskById(id)).WithAnyArguments().WillReturn(task);
-            Assert.IsTrue(taskManager.modifyTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType, 1));  
+            Assert.IsTrue(taskManager.modifyTask(name, notes, description, dateCreated, dueDate, priority, estimateTime, estimateType, 1));
 
         }
 
-  
+        [TestMethod]
+        public void testGetAllTasksBy()
+        {
+            List<Task> tasks = new List<Task>();
+            String priority = "priority";
+            String dueDate = "dueDate";
+            String dateCreated = "dateCreated";
+            String badSort = "badSort";
+            taskServiceMock.Expects.One.MethodWith(s => s.getAllTasksByPriority()).WillReturn(tasks);
+            taskManager.getAllTasks(priority);
+            taskServiceMock.Expects.One.MethodWith(s => s.getAllTasksByDueDate()).WillReturn(tasks);
+            taskManager.getAllTasks(dueDate);
+            taskServiceMock.Expects.One.MethodWith(s => s.getAllTasksByDateCreated()).WillReturn(tasks);
+            taskManager.getAllTasks(dateCreated);
+            taskServiceMock.Expects.One.MethodWith(s => s.getAllTasks()).WillReturn(tasks);
+            taskManager.getAllTasks(badSort);
+        }
+
+
     }
 }

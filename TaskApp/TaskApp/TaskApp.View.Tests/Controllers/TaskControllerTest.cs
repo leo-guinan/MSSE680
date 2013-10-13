@@ -19,17 +19,15 @@ namespace TaskApp.View.Tests.Controllers
 
         MockFactory mockFactory;
         Task task;
-
+        IList<Task> tasks;
         [TestInitialize]
         public void setup()
         {
-            IList<Task> tasks = new List<Task>();
+            tasks = new List<Task>();
             task = new Task();
-            tasks.Add(task);
+            tasks.Add(task);           
             mockFactory = new MockFactory();
             taskManager = mockFactory.CreateMock<ITaskManager>();
-            taskManager.Expects.One.MethodWith(m => m.getAllTasks()).WillReturn(tasks);
-
             controller = new TaskController();
             controller.taskManager = taskManager.MockObject;
 
@@ -38,9 +36,30 @@ namespace TaskApp.View.Tests.Controllers
         [TestMethod]
         public void TestListAll()
         {
-            ViewResult result = controller.ListAll() as ViewResult;
+            taskManager.Expects.One.MethodWith(m => m.getAllTasks(null)).WillReturn(tasks);
+            ViewResult result = controller.ListAll(null) as ViewResult;
             Assert.AreEqual(1, (result.Model as IList<TaskModel>).Count);
-            
+            taskManager.Expects.One.MethodWith(m => m.getAllTasks("priority")).WillReturn(tasks);
+            result = controller.ListAll("priority") as ViewResult;
+            Assert.AreEqual(1, (result.Model as IList<TaskModel>).Count);
+            taskManager.Expects.One.MethodWith(m => m.getAllTasks("dueDate")).WillReturn(tasks);
+            result = controller.ListAll("dueDate") as ViewResult;
+            Assert.AreEqual(1, (result.Model as IList<TaskModel>).Count);
+            taskManager.Expects.One.MethodWith(m => m.getAllTasks("dateCreated")).WillReturn(tasks);
+            result = controller.ListAll("dateCreated") as ViewResult;
+            Assert.AreEqual(1, (result.Model as IList<TaskModel>).Count);                        
         }
+
+        [TestMethod]
+        public void testAdd()
+        {
+            Mock<TaskModel> mockModel = mockFactory.CreateMock<TaskModel>();
+            taskManager.Expects.One.Method(m => m.addTask("", "", "", DateTime.Now, DateTime.Now, 0, 0, "")).WithAnyArguments().WillReturn(true);
+            ViewResult result = controller.Add(mockModel.MockObject) as ViewResult;
+            Assert.AreEqual("AddSuccess", result.ViewName);
+            taskManager.Expects.One.Method(m => m.addTask("", "", "", DateTime.Now, DateTime.Now, 0, 0, "")).WithAnyArguments().WillReturn(false);
+            result = controller.Add(mockModel.MockObject) as ViewResult;
+            Assert.AreEqual("AddFailure", result.ViewName);
+        } 
     }
 }

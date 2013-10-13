@@ -26,6 +26,27 @@ namespace TaskApp.Business
             return taskService.getAllTasks();
         }
 
+        public IList<Task> getAllTasks(String by)
+        {
+            IList<Task> tasks;
+            switch(by) 
+            {
+                case "priority":
+                    tasks = taskService.getAllTasksByPriority();
+                    break;
+                case "dueDate":
+                    tasks = taskService.getAllTasksByDueDate();
+                    break;
+                case "dateCreated":
+                    tasks = taskService.getAllTasksByDateCreated();
+                    break;
+                default:
+                    tasks = taskService.getAllTasks();
+                    break;
+            }
+            return tasks;
+        }
+
         public Boolean addTask(String name, String notes, String description, DateTime dateCreated, DateTime dueDate, int priority, int estimateTime, String estimateType)
         {
             Task task = new Task();

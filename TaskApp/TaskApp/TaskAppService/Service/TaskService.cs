@@ -24,8 +24,7 @@ namespace TaskApp.Service
         public Boolean addTask(Task task)
         {
             Task added = repository.addEntity(task);
-            Estimate estimate = estimateRepository.addEntity(task.Estimates.ElementAt(0)); 
-            return added != null && estimate != null;
+            return added != null;
         }
 
         

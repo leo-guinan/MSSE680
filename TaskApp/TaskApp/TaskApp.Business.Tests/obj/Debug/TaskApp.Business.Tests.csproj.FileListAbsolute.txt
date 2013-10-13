@@ -1,4 +1,3 @@
-C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\obj\Debug\TaskApp.Business.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskApp.Business.Tests.dll.config
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskApp.Business.Tests.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskApp.Business.Tests.pdb
@@ -40,5 +39,6 @@ C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\Ninject.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\EntityFramework.xml
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\bin\Debug\TaskAppRepository.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\obj\Debug\TaskApp.Business.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\obj\Debug\TaskApp.Business.Tests.dll
 C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Business.Tests\obj\Debug\TaskApp.Business.Tests.pdb

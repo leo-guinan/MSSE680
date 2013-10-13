@@ -9,9 +9,9 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Notes</th>
-                        <th>Priority</th>
-                        <th>DateCreated</th>
-                        <th>Due Date</th>
+                        <th>@Html.ActionLink("Priority", "ListAll", "Task", new {sortBy = "priority"}, null)</th>
+                        <th>@Html.ActionLink("Date Created", "ListAll", "Task", new {sortBy = "dateCreated"}, null)</th>
+                        <th>@Html.ActionLink("Due Date", "ListAll", "Task", new {sortBy = "dueDate"}, null)</th>
                         <th>Estimate</th>
                     </tr>
                 </thead>
