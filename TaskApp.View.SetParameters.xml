@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="TaskApp" />
+  <setParameter name="taskDomainDBEntities-Web.config Connection String" value="metadata=res://*/TaskDomainModel.csdl|res://*/TaskDomainModel.ssdl|res://*/TaskDomainModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=LEO-PC;Initial Catalog=tasksDB;Integrated Security=True&quot;" />
+</parameters>

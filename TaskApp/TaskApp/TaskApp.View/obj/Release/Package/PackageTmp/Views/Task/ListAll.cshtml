@@ -1,0 +1,38 @@
+﻿@model ICollection<TaskApp.View.Models.TaskModel>
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Notes</th>
+                        <th>@Html.ActionLink("Priority", "ListAll", "Task", new {sortBy = "priority"}, null)</th>
+                        <th>@Html.ActionLink("Date Created", "ListAll", "Task", new {sortBy = "dateCreated"}, null)</th>
+                        <th>@Html.ActionLink("Due Date", "ListAll", "Task", new {sortBy = "dueDate"}, null)</th>
+                        <th>Estimate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (TaskApp.View.Models.TaskModel task in Model)
+                    {
+                        <tr>
+                            <td>@task.name</td>
+                            <td>@task.description</td>
+                            <td>@task.notes</td>
+                            <td>@task.priority</td>
+                            <td>@task.dateCreated</td>
+                            <td>@task.dueDate</td>
+                            <td>@task.time @task.type</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+}
+
+
