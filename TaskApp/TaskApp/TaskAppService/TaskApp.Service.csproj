@@ -241,10 +241,6 @@
       <Project>{66518a16-9d22-4852-8d9b-c8da3045d280}</Project>
       <Name>TaskApp.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TaskApp\TaskApp.Domain.csproj">
-      <Project>{4629d003-10f8-4686-8524-6f9dfa0159a0}</Project>
-      <Name>TaskApp.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

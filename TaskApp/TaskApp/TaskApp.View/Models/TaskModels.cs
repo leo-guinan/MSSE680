@@ -41,4 +41,11 @@ namespace TaskApp.View.Models
 
     }
 
+    public class ListAllModel
+    {
+        public List<TaskModel> taskModels { get; set; }
+        public String direction { get; set; }
+        public String sort { get; set; }
+    }
+
 }

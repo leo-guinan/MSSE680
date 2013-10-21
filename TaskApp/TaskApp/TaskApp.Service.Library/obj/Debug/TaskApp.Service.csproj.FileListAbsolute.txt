@@ -1,0 +1,11 @@
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Service.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Service.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\EntityFramework.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Domain.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Repository.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Domain.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\TaskApp.Repository.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\bin\Debug\EntityFramework.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\obj\Debug\TaskApp.Service.csprojResolveAssemblyReference.cache
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\obj\Debug\TaskApp.Service.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Service.Library\obj\Debug\TaskApp.Service.Library.pdb

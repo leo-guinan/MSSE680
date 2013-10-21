@@ -15,7 +15,6 @@ namespace TaskApp.Tests.Integration
         private ITaskService taskService = (ITaskService) factory.getService("taskService");
         private IUserService userService = (IUserService) factory.getService("userService");
 
-        private Estimate estimate;
 
         [TestMethod]
         public void testFlowFromServiceFactoryToGetDomainObjectsTask()

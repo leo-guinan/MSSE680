@@ -1,22 +1,22 @@
-﻿@model ICollection<TaskApp.View.Models.TaskModel>
+﻿@model TaskApp.View.Models.ListAllModel
 
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
-            <table>
+            <table id="tasks" data-direction="@Model.direction" data-sort="@Model.sort">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Notes</th>
-                        <th>@Html.ActionLink("Priority", "ListAll", "Task", new {sortBy = "priority"}, null)</th>
-                        <th>@Html.ActionLink("Date Created", "ListAll", "Task", new {sortBy = "dateCreated"}, null)</th>
-                        <th>@Html.ActionLink("Due Date", "ListAll", "Task", new {sortBy = "dueDate"}, null)</th>
+                        <th>@Html.ActionLink("Priority", "ListAll", "Task", new { sortBy = "priority"}, new { id = "priority" })</th>
+                        <th>@Html.ActionLink("Date Created", "ListAll", "Task", new {sortBy = "dateCreated"}, new { id = "dateCreated" })</th>
+                        <th>@Html.ActionLink("Due Date", "ListAll", "Task", new {sortBy = "dueDate"}, new { id = "dueDate" })</th>
                         <th>Estimate</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (TaskApp.View.Models.TaskModel task in Model)
+                    @foreach (TaskApp.View.Models.TaskModel task in Model.taskModels)
                     {
                         <tr>
                             <td>@task.name</td>
@@ -36,3 +36,20 @@
 }
 
 
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var tasks = $("#tasks"),
+                direction = tasks.data("direction"),
+                sortBy = tasks.data("sort");
+            $("#tasks a").each(function () {
+                var url = $(this).attr("href");
+                if ($(this).attr("id") === sortBy) {
+                    if ("a" === direction) {
+                        $(this).attr("href", url + "&direction=d");
+                    }
+                }            
+            });
+        });
+    </script>
+}

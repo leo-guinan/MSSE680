@@ -47,17 +47,25 @@ namespace TaskApp.View.Controllers
             }
         }
 
-        public ActionResult ListAll(String sortBy)
+        public ActionResult ListAll(String sortBy, String direction = "a")
         {
+            ListAllModel listModel = new ListAllModel();
             IList<Task> tasks;
-            tasks = taskManager.getAllTasks(sortBy);
+            tasks = taskManager.getAllTasks(sortBy); 
             
-            IList<TaskModel> models = new List<TaskModel>();
+            List<TaskModel> models = new List<TaskModel>();
             foreach (Task task in tasks)
             {
                 models.Add(convertTaskToTaskModel(task));
             }
-            return View(models);
+            listModel.taskModels = models;
+            if ("d".Equals(direction.ToLower()))
+            {
+                listModel.taskModels.Reverse();
+            }
+            listModel.direction = direction;
+            listModel.sort = sortBy;
+            return View(listModel);
         }
 
         #region Helpers

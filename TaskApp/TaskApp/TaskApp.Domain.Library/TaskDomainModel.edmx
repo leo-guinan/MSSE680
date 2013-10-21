@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TaskApp.Domain.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="TaskAppDomainStoreContainer">
+          <EntitySet Name="Estimate" EntityType="TaskApp.Domain.Store.Estimate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Task" EntityType="TaskApp.Domain.Store.Task" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="TaskApp.Domain.Store.User" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Estimate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="time" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="taskId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="varchar" MaxLength="255" />
+          <Property Name="notes" Type="varchar" MaxLength="255" />
+          <Property Name="name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="priority" Type="int" Nullable="false" />
+          <Property Name="dateCreated" Type="date" Nullable="false" />
+          <Property Name="dueDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TaskApp.Domain" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="taskDomainDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="TaskApp.Domain.User" />
+          <EntitySet Name="Estimates" EntityType="TaskApp.Domain.Estimate" />
+          <EntitySet Name="Tasks" EntityType="TaskApp.Domain.Task" />
+          <AssociationSet Name="task_fk" Association="TaskApp.Domain.task_fk">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="Estimate" EntitySet="Estimates" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Type="String" Name="username" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Estimate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="time" Nullable="false" />
+          <Property Type="String" Name="type" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="taskId" Nullable="false" />
+          <NavigationProperty Name="Task" Relationship="TaskApp.Domain.task_fk" FromRole="Estimate" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="description" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="notes" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estimates" Relationship="TaskApp.Domain.task_fk" FromRole="Task" ToRole="Estimate" />
+          <Property Type="Int32" Name="priority" Nullable="false" />
+          <Property Type="DateTime" Name="dateCreated" Nullable="false" Precision="0" />
+          <Property Type="DateTime" Name="dueDate" Nullable="false" Precision="0" />
+        </EntityType>
+        <Association Name="task_fk">
+          <End Type="TaskApp.Domain.Task" Role="Task" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TaskApp.Domain.Estimate" Role="Estimate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Estimate">
+              <PropertyRef Name="taskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TaskAppDomainStoreContainer" CdmEntityContainer="taskDomainDBEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="TaskApp.Domain.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estimates">
+            <EntityTypeMapping TypeName="TaskApp.Domain.Estimate">
+              <MappingFragment StoreEntitySet="Estimate">
+                <ScalarProperty Name="taskId" ColumnName="taskId" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="TaskApp.Domain.Task">
+              <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="dueDate" ColumnName="dueDate" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="priority" ColumnName="priority" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

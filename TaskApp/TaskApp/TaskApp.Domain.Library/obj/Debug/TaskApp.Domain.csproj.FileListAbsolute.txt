@@ -1,0 +1,7 @@
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\bin\Debug\TaskApp.Domain.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\bin\Debug\TaskApp.Domain.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\bin\Debug\EntityFramework.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\bin\Debug\EntityFramework.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\obj\Debug\TaskApp.Domain.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\obj\Debug\TaskApp.Domain.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Domain.Library\obj\Debug\TaskApp.Domain.csprojResolveAssemblyReference.cache

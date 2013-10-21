@@ -128,17 +128,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TaskApp.Business\TaskApp.Business.csproj">
-      <Project>{b1af2987-196c-43a2-bb05-577a3e62f9e8}</Project>
+    <ProjectReference Include="..\TaskApp.Business.ClassLibrary\TaskApp.Business.csproj">
+      <Project>{acd02ff7-c5d3-459c-a694-d6cc26cf72e7}</Project>
       <Name>TaskApp.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskApp.Domain.Library\TaskApp.Domain.csproj">
+      <Project>{250c9d65-1849-420f-9ba0-a9302935571d}</Project>
+      <Name>TaskApp.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskApp.View\TaskApp.View.csproj">
       <Project>{20FCC6B4-6F93-4CE8-86C9-154E5B858D2B}</Project>
       <Name>TaskApp.View</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskApp\TaskApp.Domain.csproj">
-      <Project>{4629d003-10f8-4686-8524-6f9dfa0159a0}</Project>
-      <Name>TaskApp.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

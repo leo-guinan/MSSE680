@@ -1,0 +1,6 @@
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\bin\Debug\TaskApp.Repository.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\bin\Debug\TaskApp.Repository.Library.pdb
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\bin\Debug\EntityFramework.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\bin\Debug\EntityFramework.xml
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\obj\Debug\TaskApp.Repository.Library.dll
+C:\Users\Leo\Documents\GitHub\MSSE680\TaskApp\TaskApp\TaskApp.Repository.Library\obj\Debug\TaskApp.Repository.Library.pdb

@@ -113,13 +113,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TaskAppRepository\TaskApp.Repository.csproj">
-      <Project>{66518A16-9D22-4852-8D9B-C8DA3045D280}</Project>
-      <Name>TaskApp.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TaskApp\TaskApp.Domain.csproj">
-      <Project>{4629d003-10f8-4686-8524-6f9dfa0159a0}</Project>
+    <ProjectReference Include="..\TaskApp.Domain.Library\TaskApp.Domain.csproj">
+      <Project>{250c9d65-1849-420f-9ba0-a9302935571d}</Project>
       <Name>TaskApp.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskApp.Repository.Library\TaskApp.Repository.csproj">
+      <Project>{dc592642-05b4-48e1-a3e1-5a74d6a52b08}</Project>
+      <Name>TaskApp.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
