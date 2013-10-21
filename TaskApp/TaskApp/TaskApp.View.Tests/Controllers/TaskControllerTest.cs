@@ -82,8 +82,6 @@ namespace TaskApp.View.Tests.Controllers
             Assert.AreEqual(task.dateCreated, (result.Model as ListAllModel).taskModels[1].dateCreated);
         }
 
-
-
         [TestMethod]
         public void testAdd()
         {
